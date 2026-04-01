@@ -1,0 +1,680 @@
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-ham {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ham-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--s50);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+.mob-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 299;
+  background: var(--s900);
+  border-bottom: 2px solid var(--r500);
+  padding: 1.5rem 5%;
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.mob-menu.mob-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mob-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 1.2rem;
+}
+
+.mob-ul li a {
+  display: block;
+  padding: 0.85rem 0;
+  color: var(--s200);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.18s;
+}
+
+.mob-ul li:last-child a { border-bottom: none; }
+.mob-ul li a:hover,
+.mob-ul li a.active { color: var(--r400); }
+
+.mob-cta {
+  display: block;
+  width: 100%;
+  background: var(--r500);
+  color: white;
+  text-align: center;
+  padding: 0.9rem;
+  font-family: var(--ff-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 97% 100%, 0 100%);
+  transition: background 0.18s;
+}
+
+.mob-cta:hover { background: var(--r400); }
+
+.mob-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 298;
+  background: rgba(13,17,23,0.6);
+}
+
+/* ── BASE FIXES (all screens — prevent overflow globally) ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Prevent any section from causing horizontal scroll */
+.sec,
+.ph,
+.home-hero,
+.stat-strip,
+.cta-band,
+.footer,
+.reg-sec {
+  overflow-x: hidden;
+}
+
+/* ── Mentor cards: fix inconsistent height across all screens ── */
+.mentor-grid {
+  align-items: stretch;
+}
+
+.mc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mc p {
+  flex: 1;
+}
+
+/* ── Challenge cards: prevent text overflow ── */
+.chal h3,
+.chal p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ── About section: prevent heading from overflowing visual column ── */
+.about-story .display {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+
+/* ── 1280px: Wide Desktop ───────────────────────────────────── */
+@media (max-width: 1280px) {
+  .hh-title {
+    font-size: clamp(2.8rem, 5.5vw, 6rem);
+  }
+
+  .hh-grid { gap: 3rem; }
+
+  .foot-top {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .as-inner { gap: 3.5rem; }
+  .prog-grid { gap: 1.2rem; }
+  .mentor-grid { gap: 1rem; }
+}
+
+
+/* ── 1024px: Laptop / Small Desktop ────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Nav */
+  .nav-ul li a {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.73rem;
+  }
+
+  /* Hero */
+  .hh-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .hh-title { font-size: clamp(2.6rem, 5vw, 4.8rem); }
+  .hh-panel { padding: 1.6rem; }
+  .panel-stats { gap: 0.5rem; }
+  .ps-n { font-size: 1.6rem; }
+
+  /* Sections */
+  .sec  { padding: 4.5rem 5%; }
+  .ph   { padding: 8rem 5% 5rem; }
+
+  /* About: hide floating badges but keep visual panel */
+  .as-inner { gap: 2.5rem; }
+  .as-f1,
+  .as-f2 { display: none; }
+
+  /* Grids → 2 col */
+  .chal-grid,
+  .prog-grid,
+  .vc-grid,
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .mentor-grid { grid-template-columns: repeat(2, 1fr); }
+  .val-grid    { grid-template-columns: repeat(2, 1fr); }
+
+  /* Footer */
+  .foot-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .foot-brand { grid-column: 1 / -1; }
+
+  /* Register */
+  .reg-inner { gap: 3rem; }
+  .reg-card  { padding: 2rem; }
+}
+
+
+/* ── 768px: Tablet ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .nav-ul  { display: none; }
+  .nav-btn { display: none; }
+  .nav-ham { display: flex; }
+
+  /* Hero */
+  .hh-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .hh-panel   { display: none; }
+  .hh-eyebrow { margin-bottom: 1.2rem; }
+  .hh-sub     { max-width: 100%; font-size: 0.95rem; }
+  .hh-title   { font-size: clamp(2.8rem, 8vw, 4.2rem); }
+
+  .hh-btns {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  /* Stat strip */
+  .stat-strip {
+    gap: 1.2rem 2.5rem;
+    padding: 1rem 5%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .ss-n { font-size: 1.5rem; }
+
+  /* Sections */
+  .sec { padding: 4rem 5%; }
+  .ph  { padding: 7rem 5% 4rem; }
+
+  .ph-deco {
+    font-size: 10rem;
+    opacity: 0.03;
+  }
+
+  /* === FIX 1: About Story — hide visual panel, show only text === */
+  .as-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .as-visual { display: none; }
+
+  /* === FIX 2: Challenges — 2 equal cols, no overflow === */
+  .chal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* === FIX 3: Mentor grid — 2 equal cols, equal height === */
+  .mentor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .mc {
+    padding: 1.6rem;
+  }
+
+  .mc h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--s800);
+  }
+
+  .mc .role {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  .mc p {
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  /* Other grids → 2 col */
+  .prog-grid,
+  .vc-grid,
+  .pillars-grid,
+  .sch-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .val-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* How It Works */
+  .steps::before { left: 20px; }
+  .sn  { width: 44px; height: 44px; font-size: 1.1rem; }
+  .step { gap: 1.2rem; }
+
+  /* Roadmap */
+  .rm-item  { gap: 1rem; padding: 1.1rem 1.2rem; }
+  .rm-num   { font-size: 2rem; min-width: 2.5rem; }
+
+  /* CTA */
+  .cta-band   { padding: 4rem 5%; }
+  .cta-band::before { font-size: 8rem; }
+
+  /* Register */
+  .reg-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .reg-card {
+    position: static;
+    padding: 1.8rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer */
+  .foot-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+  .foot-brand        { grid-column: 1 / -1; }
+  .foot-brand p      { max-width: 100%; }
+  .foot-bottom       { flex-direction: column; gap: 0.4rem; text-align: center; }
+
+  /* Typography */
+  .display { font-size: clamp(2rem, 6vw, 3.5rem); }
+  .faq-inner { max-width: 100%; }
+}
+
+
+/* ── 480px: Large Mobile ────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Navbar */
+  .nav      { padding: 0 4%; height: 56px; }
+  .mob-menu { top: 56px; }
+  .logo-word { font-size: 1.3rem; }
+  .logo-sq   { width: 30px; height: 30px; font-size: 0.9rem; }
+
+  /* Hero */
+  .home-hero {
+    padding: 6rem 4% 4rem;
+    min-height: auto;
+  }
+
+  .hh-grid    { text-align: left; }
+  .hh-title   { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .hh-eyebrow { font-size: 0.62rem; }
+
+  .hh-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .hh-btns .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Stat strip */
+  .stat-strip {
+    gap: 0.9rem 2rem;
+    padding: 0.9rem 4%;
+  }
+  .ss-n { font-size: 1.3rem; }
+  .ss-l { font-size: 0.6rem; }
+
+  /* Sections */
+  .sec { padding: 3.5rem 4%; }
+  .ph  { padding: 6rem 4% 3.5rem; }
+  .ph-deco { display: none; }
+
+  .ph h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .ph p  { font-size: 0.9rem; }
+
+  /* === FIX 1 (mobile): About — full single column === */
+  .as-inner  { grid-template-columns: 1fr; }
+  .as-visual { display: none; }
+
+  /* === FIX 2 (mobile): Challenges — single column === */
+  .chal-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Prevent challenge number from making cards too tall */
+  .chal-n {
+    font-size: 2.8rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* === FIX 3 (mobile): Mentors — single column, consistent === */
+  .mentor-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .mc {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .mc-av {
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .mc-body { flex: 1; }
+
+  .mc h4 {
+    text-align: left;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.2rem;
+  }
+
+  .mc .role {
+    text-align: left;
+    font-size: 0.68rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .mc p {
+    text-align: left;
+    font-size: 0.78rem;
+  }
+
+  /* Other grids → 1 col */
+  .prog-grid,
+  .vc-grid,
+  .pillars-grid,
+  .sch-row,
+  .testi-grid,
+  .val-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Card padding */
+  .pgc,
+  .chal,
+  .vc,
+  .pillar,
+  .schc,
+  .tc {
+    padding: 1.4rem;
+  }
+
+  /* Steps */
+  .steps::before { display: none; }
+  .step  { gap: 1rem; padding: 0.85rem 0; }
+  .sn    { width: 40px; height: 40px; font-size: 1rem; }
+
+  /* Roadmap */
+  .rm-item {
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+  }
+  .rm-num { font-size: 1.8rem; min-width: auto; }
+
+  /* CTA */
+  .cta-band { padding: 3.5rem 4%; }
+  .cta-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .cta-btns .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Register */
+  .reg-sec   { padding: 3.5rem 4%; }
+  .reg-inner { gap: 1.8rem; }
+  .reg-card  { padding: 1.4rem; }
+  .form-grid { grid-template-columns: 1fr; gap: 0.7rem; }
+  .field.full { grid-column: 1; }
+  .urg       { font-size: 0.7rem; padding: 0.65rem; }
+
+  /* Display */
+  .display { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+
+  /* Footer */
+  .footer    { padding: 2.5rem 4% 1.5rem; }
+  .foot-top  { grid-template-columns: 1fr; gap: 1.5rem; }
+  .foot-brand { grid-column: 1; }
+  .fn-lg     { font-size: 1.4rem; }
+  .foot-bottom {
+    padding-top: 1rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: center;
+  }
+
+  /* Misc */
+  .apt  { padding: 0.9rem 1rem; }
+  .fq   { font-size: 0.84rem; padding: 0.9rem 1rem; }
+  .fa   { padding: 0 1rem; font-size: 0.82rem; }
+  .fi.open .fa { padding: 0 1rem 0.9rem; }
+  .sch-best { font-size: 0.58rem; }
+  .sch-pct  { font-size: 3rem; }
+  .free-pill { font-size: 0.62rem; }
+}
+
+
+/* ── 375px: Small Mobile ────────────────────────────────────── */
+@media (max-width: 375px) {
+
+  .logo-word { font-size: 1.15rem; }
+
+  .home-hero  { padding: 5.5rem 4% 3.5rem; }
+  .hh-title   { font-size: clamp(2rem, 11vw, 2.8rem); }
+  .hh-sub     { font-size: 0.88rem; }
+
+  /* Stat strip — stack vertically */
+  .stat-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1rem 4%;
+  }
+  .ss-n { font-size: 1.2rem; }
+
+  /* Sections */
+  .sec { padding: 3rem 4%; }
+  .ph  { padding: 5.5rem 4% 3rem; }
+  .ph h1 { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .ph p  { font-size: 0.85rem; }
+
+  /* Typography */
+  .display { font-size: clamp(1.7rem, 9vw, 2.4rem); margin-bottom: 0.8rem; }
+  .prose   { font-size: 0.88rem; }
+
+  /* Cards */
+  .pgc,
+  .chal,
+  .vc,
+  .pillar,
+  .schc,
+  .tc,
+  .val {
+    padding: 1.1rem;
+  }
+
+  /* Mentors on very small screens — keep horizontal layout */
+  .mc {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  .mc-av {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .mc h4  { font-size: 0.82rem; }
+  .mc .role { font-size: 0.65rem; }
+  .mc p   { font-size: 0.74rem; }
+
+  /* Challenges */
+  .chal-n { font-size: 2.4rem; }
+
+  /* Steps */
+  .sn    { width: 36px; height: 36px; font-size: 0.9rem; }
+  .sb h3 { font-size: 0.9rem; }
+  .sb p  { font-size: 0.8rem; }
+
+  /* Register */
+  .reg-card { padding: 1.1rem; }
+  .field input,
+  .field select { padding: 0.65rem 0.8rem; font-size: 0.82rem; }
+  .sub-btn { padding: 0.9rem; font-size: 0.82rem; }
+
+  /* CTA */
+  .cta-band { padding: 3rem 4%; }
+  .cta-btns .btn { padding: 0.75rem 1.2rem; font-size: 0.74rem; }
+
+  /* Footer */
+  .footer { padding: 2rem 4% 1.2rem; }
+  .foot-col a { font-size: 0.78rem; }
+
+  /* FAQ */
+  .fq { font-size: 0.8rem; padding: 0.8rem 0.9rem; }
+
+  /* Roadmap */
+  .rm-item { padding: 0.9rem; }
+  .rm-num  { font-size: 1.5rem; }
+}
+
+
+/* ── Touch: disable hover lift effects ──────────────────────── */
+@media (hover: none) {
+  .tc:hover,
+  .mc:hover,
+  .chal:hover,
+  .pgc:hover,
+  .schc:hover,
+  .vc:hover,
+  .pillar:hover,
+  .val:hover,
+  .apt:hover,
+  .rm-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pgc:hover::before {
+    transform: scaleX(0);
+  }
+
+  .sub-btn:hover,
+  .btn-red:hover {
+    transform: none;
+  }
+}
+
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .page { animation: none; }
+}

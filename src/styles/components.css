@@ -1,0 +1,327 @@
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1.8rem;
+  transition: all 0.18s;
+}
+
+.btn-red {
+  background: var(--r500);
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 95% 100%, 0 100%);
+}
+
+.btn-red:hover {
+  background: var(--r400);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--s50);
+  border: 1.5px solid rgba(248, 250, 252, 0.3);
+  border-radius: 2px;
+}
+
+.btn-outline:hover {
+  border-color: var(--s50);
+  background: rgba(248, 250, 252, 0.07);
+}
+
+/* ── Stat Strip ── */
+.stat-strip {
+  background: var(--r500);
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.ss-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ss-n {
+  font-family: var(--ff-display);
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: 0.04em;
+}
+
+.ss-l {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Testimonial Cards ── */
+.testi-sec {
+  padding: 5rem 5%;
+  background: var(--s50);
+}
+
+.testi-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 3rem;
+}
+
+.tc {
+  background: white;
+  border: 1px solid var(--s100);
+  border-radius: 4px;
+  padding: 1.8rem;
+  transition: all 0.2s;
+}
+
+.tc:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(30, 37, 48, 0.1);
+}
+
+.tc-stars {
+  color: var(--r500);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.85rem;
+}
+
+.tc p {
+  font-size: 0.88rem;
+  color: var(--s500);
+  line-height: 1.68;
+  font-style: italic;
+  margin-bottom: 1.1rem;
+}
+
+.tc-author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.tc-av {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--r500);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.tc-name {
+  font-weight: 700;
+  font-size: 0.83rem;
+  color: var(--s800);
+}
+
+.tc-loc {
+  font-size: 0.72rem;
+  color: var(--s400);
+}
+
+/* ── Mentor Cards ── */
+.mentors-sec {
+  background: white;
+}
+
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.mc {
+  background: var(--body-bg);
+  border: 1px solid var(--s100);
+  border-radius: 4px;
+  padding: 1.8rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.mc:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(30, 37, 48, 0.1);
+}
+
+.mc-av {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--s800);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--r400);
+  margin: 0 auto 1rem;
+  border: 3px solid var(--r500);
+}
+
+.mc h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--s800);
+  margin-bottom: 0.25rem;
+}
+
+.mc .role {
+  font-size: 0.72rem;
+  color: var(--r500);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
+}
+
+.mc p {
+  font-size: 0.8rem;
+  color: var(--s400);
+  line-height: 1.6;
+}
+
+/* ── FAQ ── */
+.faq-sec {
+  background: white;
+}
+
+.faq-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.fi {
+  border: 1px solid var(--s100);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.fi.open {
+  border-color: var(--r500);
+}
+
+.fq {
+  padding: 1.1rem 1.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--s800);
+  user-select: none;
+  background: white;
+}
+
+.fq:hover {
+  background: var(--body-bg);
+}
+
+.farr {
+  color: var(--r500);
+  transition: transform 0.28s;
+}
+
+.fi.open .farr {
+  transform: rotate(180deg);
+}
+
+.fa {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.33s ease, padding 0.28s;
+  padding: 0 1.3rem;
+  font-size: 0.88rem;
+  color: var(--s400);
+  line-height: 1.72;
+}
+
+.fi.open .fa {
+  max-height: 200px;
+  padding: 0 1.3rem 1.1rem;
+}
+
+
+.mc h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--s800);
+  margin-bottom: 0.25rem;
+}
+
+.mc .role {
+  font-size: 0.72rem;
+  color: var(--r500);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
+}
+
+.mc p {
+  font-size: 0.8rem;
+  color: var(--s400);
+  line-height: 1.6;
+}
+
+.mc-body {
+  flex: 1;
+}
+
+.mc h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--s800);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.mc .role {
+  font-size: 0.72rem;
+  color: var(--r500);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
+  text-align: center;
+}
+
+.mc p {
+  font-size: 0.8rem;
+  color: var(--s400);
+  line-height: 1.6;
+  text-align: center;
+}
+

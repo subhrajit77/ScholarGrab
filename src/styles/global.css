@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap');
+
+:root {
+  --s900: #0d1117;
+  --s800: #1e2530;
+  --s700: #252f3e;
+  --s600: #374151;
+  --s500: #4b5563;
+  --s400: #6b7280;
+  --s300: #9ca3af;
+  --s200: #d1d5db;
+  --s100: #e5e7eb;
+  --s50:  #f8fafc;
+  --r600: #b91c1c;
+  --r500: #dc2626;
+  --r400: #ef4444;
+  --r300: #fca5a5;
+  --body-bg: #f0f4f8;
+  --ff-display: "Bebas Neue", system-ui, sans-serif;
+  --ff-body: "Nunito Sans", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--body-bg);
+  color: var(--s800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--ff-body);
+}
+
+/* Tex = dark background text helper */
+.tex h1,
+.tex h2,
+.tex h3,
+.tex h4,
+.tex p,
+.tex span,
+.tex li {
+  color: var(--s50);
+}
+
+/* Responsive styles are in src/styles/responsive.css */
+
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .logo img {
+    height: 35px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .logo img {
+    height: 28px;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: clamp(28px, 5vw, 45px);
+  display: block;
+}
+
+.logo-word {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+
+  line-height: 1;
+  transform: translateY(6px);   /* 🔥 moves ONLY text down */
+}
+
+.logo-word span {
+  color: #ff3b3b;
+}
+
+

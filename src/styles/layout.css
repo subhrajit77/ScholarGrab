@@ -1,0 +1,335 @@
+/* ── Navbar ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  background: var(--s900);
+  border-bottom: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-sq {
+  width: 34px;
+  height: 34px;
+  background: var(--r500);
+  display: grid;
+  place-items: center;
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+}
+
+.logo-word {
+  font-family: var(--ff-display);
+  font-size: 1.55rem;
+  color: var(--s50);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.logo-word span {
+  color: var(--r400);
+}
+
+.nav-ul {
+  display: flex;
+  gap: 2px;
+  list-style: none;
+}
+
+.nav-ul li a {
+  color: var(--s300);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  border-radius: 3px;
+  transition: all 0.18s;
+}
+
+.nav-ul li a:hover,
+.nav-ul li a.active {
+  color: var(--s50);
+  background: rgba(220, 38, 38, 0.15);
+}
+
+.nav-btn {
+  background: var(--r500);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.3rem;
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 95% 100%, 0 100%);
+  transition: all 0.18s;
+}
+
+.nav-btn:hover {
+  background: var(--r400);
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--s900);
+  padding: 3.5rem 5% 2rem;
+  border-top: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.foot-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.foot-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.foot-brand p {
+  color: var(--s400);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin-top: 0.7rem;
+  max-width: 260px;
+}
+
+.fn-lg {
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  color: var(--s50);
+  letter-spacing: 0.06em;
+}
+
+.fn-lg span {
+  color: var(--r400);
+}
+
+.foot-col h5 {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--r400);
+  margin-bottom: 1rem;
+}
+
+.foot-col a {
+  display: block;
+  color: var(--s500);
+  text-decoration: none;
+  font-size: 0.82rem;
+  margin-bottom: 0.45rem;
+  transition: color 0.18s;
+}
+
+.foot-col a:hover {
+  color: var(--r400);
+}
+
+.foot-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foot-bottom p {
+  color: var(--s600);
+  font-size: 0.76rem;
+}
+
+/* ── Page Wrapper ── */
+.page {
+  animation: pi 0.38s ease;
+}
+
+@keyframes pi {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Section base ── */
+.sec {
+  padding: 5.5rem 5%;
+}
+
+.sec-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Page Hero Banner ── */
+.ph {
+  padding: 9rem 5% 6rem;
+  background: var(--s800);
+  position: relative;
+  overflow: hidden;
+}
+
+.ph-inner {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.ph-deco {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--ff-display);
+  font-size: 22rem;
+  color: rgba(220, 38, 38, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+.ph-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  padding: 0.35rem 0.9rem;
+  color: var(--r300);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 1.4rem;
+}
+
+.ph h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--s50);
+  margin-bottom: 1.3rem;
+}
+
+.ph h1 em {
+  color: var(--r400);
+  font-style: normal;
+}
+
+.ph p {
+  color: var(--s300);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 580px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.8rem;
+}
+
+.breadcrumb span {
+  font-size: 0.75rem;
+  color: var(--s400);
+  letter-spacing: 0.04em;
+}
+
+.breadcrumb .cur {
+  color: var(--r400);
+  font-weight: 700;
+}
+
+.breadcrumb .sep {
+  color: var(--s600);
+}
+
+/* ── CTA Band ── */
+.cta-band {
+  background: var(--s800);
+  padding: 5rem 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: "SCHOLARGRAB";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ff-display);
+  font-size: 14rem;
+  color: rgba(220, 38, 38, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.06em;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  color: var(--s50);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.cta-band h2 em {
+  color: var(--r400);
+  font-style: normal;
+}
+
+.cta-band p {
+  color: var(--s400);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
